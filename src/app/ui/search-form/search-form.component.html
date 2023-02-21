@@ -1,1 +1,16 @@
-<!-- implement search form here -->
+<form [formGroup]="formGroup">
+  <mat-form-field class="search-input">
+    <input matInput placeholder="Search" formControlName="search" />
+    <mat-error *ngIf="formGroup.get('search').invalid && formGroup.get('search').dirty">Ungültige Eingabe</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Filter search" formControlName="filter">
+      <mat-option value="{{filterValues.SearchAll}}">Patients + Practitioners</mat-option>
+      <mat-option value="{{filterValues.SearchPatients}}">Patients</mat-option>
+      <mat-option value="{{filterValues.SearchPractitioners}}">Practitioners</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button class="search-buttton" (click)="onSubmit()" mat-raised-button color="primary" [disabled]="formGroup.invalid">
+    search
+  </button>
+</form>

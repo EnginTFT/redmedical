@@ -1,6 +1,6 @@
 <app-grid-container>
   <div class="content" content>
-    <app-search></app-search>
+    <app-search (formSubmitted)="onSubmit($event)"></app-search>
 
     <app-unicorn-table
       [columns]="columns"
