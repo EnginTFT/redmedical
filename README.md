@@ -28,6 +28,8 @@ Zu Beginn der Aufgabe wird ein Fehler zu lösen sein, es gilt diesen ausfindig z
 Bei der Abgabe bitte kurz erklären, warum dieser Fehler aufgetreten ist.
 Es reicht an der entsprechenden Stelle kurz einen Kommentar zu verfassen.
 
+**Antwort zu finden in der dashboard.component Zeile 48**
+
 ### 2. Erstelle eine Suchform
 
 Erstelle ein Formular mit einem Input für eine Freitextsuche und einem Dropdown für einen Filter.

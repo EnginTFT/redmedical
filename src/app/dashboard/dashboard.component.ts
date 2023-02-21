@@ -4,7 +4,7 @@ import { catchError, map, shareReplay, startWith, tap } from 'rxjs/operators';
 import { SiteTitleService } from '@red-probeaufgabe/core';
 import { FhirSearchFn, IFhirPatient, IFhirPractitioner, IFhirSearchResponse } from '@red-probeaufgabe/types';
 import { IUnicornTableColumn } from '@red-probeaufgabe/ui';
-import { AbstractSearchFacadeService } from '@red-probeaufgabe/search';
+import { AbstractSearchFacadeService, SearchFacadeService } from '@red-probeaufgabe/search';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,7 +45,10 @@ export class DashboardComponent {
     startWith(0),
   );
 
-  constructor(private siteTitleService: SiteTitleService, private searchFacade: AbstractSearchFacadeService) {
+  // Aufgabe 1 Fehlersuche
+  // Hier wurde die Abstrakte Klasse AbstractSearchFacadeService importiert und benutzt. EIne Abstrakte Klasse ist nur eine "Bauanleitung".
+  // Die AbstractSearchFacadeService wird vom SearchFacadeService extended.
+  constructor(private siteTitleService: SiteTitleService, private searchFacade: SearchFacadeService) {
     this.siteTitleService.setSiteTitle('Dashboard');
   }
 
