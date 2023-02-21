@@ -12,7 +12,7 @@ import { SearchFormSubmitValues } from 'app/ui/search-form/models/search-form-su
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   // Init unicorn columns to display
   columns: Set<IUnicornTableColumn> = new Set<IUnicornTableColumn>([
     'number',
@@ -54,9 +54,6 @@ export class DashboardComponent implements OnInit {
     this.siteTitleService.setSiteTitle('Dashboard');
   }
 
-  ngOnInit(): void {
-    console.log('hallo welt');
-  }
   private handleError(): Observable<IFhirSearchResponse<IFhirPatient | IFhirPractitioner>> {
     return of({ entry: [], total: 0 });
   }
