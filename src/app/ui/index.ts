@@ -8,3 +8,4 @@ export * from './search-form/search-form.component';
 export * from './models/unicorn-table-column.interface';
 
 export * from './ui.module';
+export * from './detail-view/detail-view.component';

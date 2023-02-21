@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Details</h2>
+
+<div class="details" *ngIf="details.resourceType==='Practitioner'">
+  <p><b>Resource Type:</b> {{details.resourceType}}</p>
+  <p><b>Name:</b> {{details.name}}</p>
+  <p><b>ID:</b> {{details.id}}</p>
+  <p><b>Telecom:</b> {{details.telecom}}</p>
+</div>
+<div class="details" *ngIf="details.resourceType==='Patient'">
+  <p><b>Resource Type:</b> {{details.resourceType}}</p>
+  <p><b>Name:</b> {{details.name}}</p>
+  <p><b>ID:</b> {{details.id}}</p>
+  <p><b>Birthdate:</b> {{details.birthDate}}</p>
+  <p><b>Gender:</b> {{details.gender}}</p>
+  <p><b>Adresse:</b> {{details.adresse}}</p>
+</div>

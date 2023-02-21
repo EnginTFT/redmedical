@@ -29,11 +29,35 @@ export class FhirUtilService {
     return `${line}${city}${postalCode}${state}`;
   }
 
+  private static getFhirPatientRepresentation(data: IFhirPatient) {
+    return {
+      resourceType: data.resourceType,
+      id: data.id,
+      birthDate: data.birthDate,
+      gender: data.gender,
+    };
+  }
+  private static getFhirPractitionerRepresentation(data: IFhirPractitioner) {
+    return {
+      resourceType: data.resourceType,
+      id: data.id,
+      telecom: data.telecom,
+    };
+  }
+
   /**
    * Prepare FHIR data for detail view
    * @param data
    */
   prepareData(data: IFhirPatient | IFhirPractitioner): IPreparedIFhirPatient | IPreparedIFhirPractitioner {
+    console.log('data', data);
+    let preparedData;
+    if (data.resourceType == 'Patient') {
+      preparedData = FhirUtilService.getFhirPatientRepresentation(data as IFhirPatient);
+    }
+    if (data.resourceType == 'Practitioner') {
+      preparedData = FhirUtilService.getFhirPractitionerRepresentation(data as IFhirPractitioner);
+    }
     const address = data.address?.map((resourceAddress: IFhirResourceAddress) =>
       FhirUtilService.getFhirAddressRepresentation(resourceAddress),
     );
@@ -41,6 +65,6 @@ export class FhirUtilService {
       FhirUtilService.getFhirNameRepresentation(humanName),
     );
 
-    return { ...data, address, name };
+    return { ...preparedData, address, name };
   }
 }
