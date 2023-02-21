@@ -89,8 +89,6 @@ export class DashboardComponent {
     );
   }
   onRowClick(row: any) {
-    console.log('Row clicked', this.utilService.prepareData(row));
-
     const dialogRef = this.dialog.open(DetailViewComponent, {
       data: {
         detailViewData: this.utilService.prepareData(row),

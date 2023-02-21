@@ -50,7 +50,6 @@ export class FhirUtilService {
    * @param data
    */
   prepareData(data: IFhirPatient | IFhirPractitioner): IPreparedIFhirPatient | IPreparedIFhirPractitioner {
-    console.log('data', data);
     let preparedData;
     if (data.resourceType == 'Patient') {
       preparedData = FhirUtilService.getFhirPatientRepresentation(data as IFhirPatient);
